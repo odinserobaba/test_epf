@@ -1,0 +1,134 @@
+{
+    "id": "2e75f42e-b44f-4f29-b70e-c70c03d2da88",
+    "serviceId": "lic-integrator",
+    "requestId": "7a45a6d6-2a21-4e90-9385-133f5d2360fc",
+    "requestType": "EPGU",
+    "xsltId": 10,
+    "responseId": "5c3d6b3b-db24-43b1-80bc-b4436e128cd7",
+    "messageId": "54bc6b5c-d8b1-11ef-8ae2-ae3fc68e8ab7",
+    "requestContent": {
+      "epgu": {
+        "orderID": "4650366676",
+        "department": "100000012571",
+        "serviceCode": "60009992",
+        "targetCode": "60009992-1",
+        "statementDate": "2025-01-22"
+      },
+      "applicant": {
+        "ul": {
+          "fullName": "ООО ЦентрИнформ2",
+          "shortName": "ООО ЦентрИнформ2",
+          "opf": "Общества с ограниченной ответственностью",
+          "lastName": "Парамонова",
+          "firstName": "Юлия",
+          "patronymic": "Александровна",
+          "ogrn": "1177847005930",
+          "inn": "7841051711",
+          "kpp": "784133001"
+        },
+        "address": "127434, Город Москва,Улица Дубки",
+        "email": "nica2011@yandex.ru",
+        "phone": "+7(926)3717373"
+      },
+      "agent": {
+        "lastName": "",
+        "firstName": "",
+        "patronymic": "",
+        "documentId": {
+          "serial": "",
+          "number": "",
+          "issuerName": "",
+          "issuerCode": "",
+          "issueDate": ""
+        },
+        "dateOfBirth": "",
+        "email": "",
+        "phone": ""
+      },
+      "grant": {
+        "subdivisions": [
+          {
+            "kpp": "784133001",
+            "address": "77:77:1111111:7777",
+            "cadastralNumbers": {
+              "warehouses": [
+                {
+                  "warehouse": "77:77:1111111:7777"
+                }
+              ],
+              "lands": [
+                {
+                  "land": "77:77:1111111:7777"
+                }
+              ]
+            },
+            "parties": "",
+            "subject": "",
+            "startDate": "",
+            "endDate": "",
+            "equipment": "77:77:1111111:7777",
+            "products": {
+              "productNames": [
+                {
+                  "productName": "биоэтанол из непищевого сырья"
+                }
+              ],
+              "productNameText": ""
+            },
+            "kppHardwareTS": "",
+            "addressHardwareTS": ""
+          }
+        ],
+        "license": {
+          "numOfYears": "4",
+          "numOfMonths": "",
+          "kindOfActivity": "Производство, хранение и поставки произведённого этилового спирта",
+          "kindOfWork": ""
+        },
+        "laboratory": {
+          "certificate": "1",
+          "parties": "",
+          "subject": "",
+          "startDate": "",
+          "endDate": ""
+        },
+        "bank": {
+          "name": "",
+          "account": ""
+        },
+        "payment": {
+          "number": "1",
+          "date": "2025-01-22",
+          "amount": "",
+          "purpose": ""
+        },
+        "uin": {
+          "number": "",
+          "date": ""
+        }
+      },
+      "appliedDocuments": [
+        {
+          "name": "пр3-100_08-12-2024 15_03_43.pdf",
+          "businessName": "Уставной капитал",
+          "type": "application/pdf",
+          "mnemonic": "c172.FileUploadComponent.capital.4650366676"
+        },
+        {
+          "name": "пр3-100_08-12-2024 15_03_43.pdf",
+          "businessName": "Расчёт производственной мощности основного технологического оборудования",
+          "type": "application/pdf",
+          "mnemonic": "c175.FileUploadComponent.moschnost.4650366676"
+        }
+      ]
+    },
+    "requestTimestamp": "2025-01-22T14:16:19.579+0300",
+    "updateTimestamp": "2025-01-22T14:16:19.767+0300",
+    "kafkaPartition": 0,
+    "kafkaOffset": 0,
+    "route": "IN",
+    "attachmentPath": "/mnt/leveler/storage/2025-01-22/54bc6b5c-d8b1-11ef-8ae2-ae3fc68e8ab7/Application.zip",
+    "state": "OUTGOING",
+    "queuedStatus": true,
+    "archivedStatus": true
+  }

@@ -1,0 +1,60 @@
+{
+    "requestId": 7777777,
+    "ogrn": "1229100008972",
+    "inn": "7841051711",
+    "kpp": "770102001",
+    "orgActivityName": "АО",
+    "orgNameBrief": "АО «ЦентрИнформ» ",
+    "orgNameFull": "КРЕСТЬЯНСКОЕ (ФЕРМЕРСКОЕ) ХОЗЯЙСТВО  ВАЮ ",
+    "orgNameFullDative": "Крестьянскому (фермерскому) хозяйству ваю",
+    "address": "298405 Республика Крым 91 БАХЧИСАРАЙСКИЙ 1 1 БАХЧИСАРАЙ Г БАХЧИСАРАЙ УЛ ЛЕНИНА Д.106",
+    "region": {
+      "code": "78",
+      "name": "САНКТ-ПЕТЕРБУРГ Г",
+      "timeZone": 3,
+      "active": true,
+      "fiasUuid": "c2deb16a-0330-4f05-821f-1d09c93331e6"
+    },
+    "email": "nica2022@yandex.ru",
+    "comment": null,
+    "rakrEntities": [],
+    "rakrCerts": [],
+    "phone": "+79261234567",
+    "ops": [],
+    "final": true,
+    "infoCadastralObjects": [],
+    "cadastralObjectsIsEmpty": true,
+    "notExFnsOp": true,
+    "rakrEmpty": true,
+    "execUser": {
+      "id": 125,
+      "firstName": "Подрядчик",
+      "lastName": "АО 'ЦЕНТРИНФОРМ'"
+    },
+    "minselhozData": [
+      "60-2023-00004556"
+    ],
+    "fromEpgu": false,
+    "dataForRequests": {
+      "mvdDataList": null,
+      "minselhozDataList": null,
+      "fnsDataList": null,
+      "rosreestrDataList": null,
+      "rosaccrDataList": []
+    },
+    "licenseType": {
+      "code": 4,
+      "description": "производство, хранение, поставки и розничная продажа произведенной сельскохозяйственными производителями винодельческой продукции",
+      "shortName": "ПХПРП_СХП",
+      "region": false
+    },
+    "transportEmpty": false,
+    "transportObjects": [],
+    "ogrnFilledFromEgrul": false,
+    "innFilledFromEgrul": false,
+    "kppFilledFromEgrul": false,
+    "orgNameBriefFilledFromEgrul": false,
+    "orgNameFullFilledFromEgrul": false,
+    "addressFilledFromEgrul": false,
+    "egrulData": false
+  }

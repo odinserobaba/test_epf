@@ -1,0 +1,32 @@
+{
+    "id": 1446,
+    "checkId": 153345,
+    "requestApplicantInfos": [],
+    "result": true,
+    "inspectors": "1",
+    "experts": [
+        {
+            "expert_name": "Васильев В.В.",
+            "outside_order_id": 1446,
+            "id": 0
+        }
+    ],
+    "statementDate": null,
+    "statementNumber": null,
+    "dateStart": "2024-12-26",
+    "dateEnd": "2024-12-26",
+    "sendMaxDate": null,
+    "signerPosition": null,
+    "signerName": null,
+    "tasks": "Задача таскс",
+    "period": 1,
+    "other_acts": "1",
+    "outsideRequestId": 0,
+    "additionalInformation": null,
+    "printedFormAddresses": [
+        {
+            "address": "298405 Республика Крым 91 БАХЧИСАРАЙСКИЙ 1 1 БАХЧИСАРАЙ Г БАХЧИСАРАЙ УЛ ЛЕНИНА Д.106",
+            "addition": "ДОПОЛНЕНИЕ"
+        }
+    ]
+}

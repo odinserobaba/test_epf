@@ -1,0 +1,48 @@
+{
+  "actDateTime": "1984-02-02T12:14",
+  "actNumber": null,
+  "administrationName": null,
+  "applicantName1": "Necessitatibus minim",
+  "applicantName2": null,
+  "cameras": "Ea officia quia omni",
+  "checkId": 247701,
+  "checkType": null,
+  "conformityAssessorName": "Fugiat voluptatibus ",
+  "conformityAssessorNotes": "Voluptas vel velit t",
+  "conformityAssessorPosition": "Odit nesciunt anim ",
+  "docs": [],
+  "familiarizationTs": null,
+  "id": null,
+  "inspectorName": null,
+  "letterDate": "2021-03-24",
+  "letterNumber": "Excepturi et consequ",
+  "licenseOutsideExecDateTimes": [
+    {
+      "dtStart": "2022-01-24T11:59",
+      "dtEnd": "2022-01-24T16:54",
+      "id": 1,
+      "outsideExecId": null
+    }
+  ],
+  "noticeTs": "1985-08-11T21:03",
+  "orderDate": null,
+  "orderNumber": null,
+  "orgMemberInfo": null,
+  "orgObjections": "Aspernatur accusanti",
+  "orgSignDateTime": null,
+  "orgSignerName": null,
+  "orgSignerPosition": null,
+  "phone": null,
+  "presentPersons": [],
+  "result": false,
+  "signerAddress": null,
+  "totalDurationTime": "10,15,29",
+  "printedFormAddresses": [],
+  "outsideExecAddresses": [
+    {
+      "address": " Республика Крым 91 БАХЧИСАРАЙСКИЙ 1 1 БАХЧИСАРАЙ Г БАХЧИСАРАЙ УЛ ЛЕНИНА Д.106",
+      "addition": "Ea unde optio disti"
+    }
+  ],
+  "outsideRequestId": 2768
+}

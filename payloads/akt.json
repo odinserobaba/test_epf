@@ -1,0 +1,47 @@
+{
+    "actDateTime": "AAAAAAT10:02",
+    "actNumber": "1",
+    "administrationName": null,
+    "applicantName1": "Иванов И. И. ",
+    "applicantName2": null,
+    "cameras": "C-3PO",
+    "checkId": 156745,
+    "checkType": null,
+    "conformityAssessorName": "Петров П. П.",
+    "conformityAssessorNotes": "Заметки",
+    "conformityAssessorPosition": "Диэлектрический директор",
+    "docs": [],
+    "familiarizationTs": "2024-12-28T10:03",
+    "id": null,
+    "inspectorName": null,
+    "letterDate":"AAAAAA",
+    "letterNumber": "1",
+    "licenseOutsideExecDateTimes": [
+      {
+        "dtStart": "AAAAAAT10:02",
+        "dtEnd": "AAAAAAT10:02",
+        "id": 1,
+        "outsideExecId": null
+      }
+    ],
+    "noticeTs": "AAAAAAT10:02",
+    "orderDate": null,
+    "orderNumber": null,
+    "orgMemberInfo": null,
+    "orgObjections": "Возражения",
+    "orgSignDateTime": null,
+    "orgSignerName": null,
+    "orgSignerPosition": null,
+    "phone": null,
+    "presentPersons": [],
+    "result": false,
+    "signerAddress": null,
+    "totalDurationTime": "1,10,03",
+    "printedFormAddresses": [
+      {
+        "address": "298405 Республика Крым 91 БАХЧИСАРАЙСКИЙ 1 1 БАХЧИСАРАЙ Г БАХЧИСАРАЙ УЛ ЛЕНИНА Д.106",
+        "addition": "ДОПОЛНЕНИЕ"
+      }
+    ],
+    "outsideRequestId": 1969
+  }

@@ -1,0 +1,36 @@
+{
+  "id": 2765,
+  "checkId": 247620,
+  "applicantInfo": [
+    {
+      "code": 90,
+      "infoName": "сведения о месте нахождения крестьянского (фермерского хозяйства);"
+    }
+  ],
+  "docs": [
+    {
+      "id": 2599,
+      "docs": {
+        "code": 32,
+        "docName": "перечень установленного организацией основного технологического оборудования для производства заявленного вида продукции по участкам с указанием марок, заводских номеров, сертификатов соответствия или деклараций о соответствии на основное технологическое оборудование;"
+      },
+      "result": false
+    }
+  ],
+  "primaryKey": 2765,
+  "result": true,
+  "administrationName": "МРУ по ЦФО",
+  "dateStatement": null,
+  "numStatement": null,
+  "phone": null,
+  "sendMaxDate": "2033-09-07",
+  "signerPosition": null,
+  "signerName": null,
+  "additionalInformation": "",
+  "printedFormAddresses": [
+    {
+      "address": " Республика Крым 91 БАХЧИСАРАЙСКИЙ 1 1 БАХЧИСАРАЙ Г БАХЧИСАРАЙ УЛ ЛЕНИНА Д.106",
+      "addition": "Ea unde optio disti"
+    }
+  ]
+}

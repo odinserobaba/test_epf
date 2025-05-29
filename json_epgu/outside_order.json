@@ -1,0 +1,32 @@
+{
+  "id": 2096,
+  "checkId": 246890,
+  "requestApplicantInfos": [],
+  "result": false,
+  "inspectors": "In dignissimos digni",
+  "experts": [
+    {
+      "expert_name": "Qui voluptatem perfe",
+      "outside_order_id": 2096,
+      "id": 0
+    }
+  ],
+  "statementDate": null,
+  "statementNumber": null,
+  "dateStart": "2034-10-31",
+  "dateEnd": "2038-01-30",
+  "sendMaxDate": null,
+  "signerPosition": null,
+  "signerName": null,
+  "tasks": "Ab quaerat exercitat",
+  "period": 13,
+  "other_acts": "Nulla inventore aut ",
+  "outsideRequestId": 2736,
+  "additionalInformation": null,
+  "printedFormAddresses": [
+    {
+      "address": " Республика Крым 91 БАХЧИСАРАЙСКИЙ 1 1 БАХЧИСАРАЙ Г БАХЧИСАРАЙ УЛ ЛЕНИНА Д.106",
+      "addition": null
+    }
+  ]
+}

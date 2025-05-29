@@ -1,0 +1,55 @@
+{
+  "permitNumber": "Г037-00125-77/00778654",
+  "permitType": {
+    "code": "007",
+    "title": "Государственная регистрация"
+  },
+  "changes": {
+    "permitStatus": null,
+    "permitInfo": {
+      "changeDate": "2025-02-13",
+      "decision": {
+        "decisionType": {
+          "code": "01",
+          "title": "Приказ/распоряжение"
+        },
+        "decisionNumberInfo": {
+          "number": "-",
+          "date": "2025-02-13"
+        }
+      },
+      "decisionMaker": {
+        "name": "Игорь Олегович Алёшин",
+        "position": {
+          "code": "5791",
+          "title": "Руководитель Федеральной службы по контролю за алкогольным и табачным рынками"
+        }
+      },
+      "validity": {
+        "validityType": {
+          "code": "02",
+          "title": "Бессрочная"
+        },
+        "startDate": "2025-01-30",
+        "expirationDate": "2025-01-30"
+      },
+      "workAddresses": null,
+      "recipient": {
+        "ip": null,
+        "ul": {
+          "fullName": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЦЕНТРИНФОРМ\"",
+          "shortName": "АО \"ЦЕНТРИНФОРМ\"",
+          "organizationalForm": {
+            "code": "12200",
+            "title": "Акционерные общества"
+          },
+          "ogrn": "1177847005930",
+          "inn": "7841051711",
+          "address": "191123, УЛ. ШПАЛЕРНАЯ, Д. 26",
+          "phone": "89263717373",
+          "email": "nica2022@yandex.ru"
+        }
+      }
+    }
+  }
+}

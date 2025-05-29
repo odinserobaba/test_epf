@@ -1,0 +1,148 @@
+{
+    "id": "dabd13ff-96e5-43c2-b9ba-20790e7479e0",
+    "serviceId": "smev-inspector",
+    "requestId": "83ab8c61-26de-497a-a6af-24678c0e336c",
+    "additionalDetails": "922bb1c7-225682-4899-b265-25cce36f0ed5",
+    "requestType": "EGRUL",
+    "clientInternalNumber": "Л-1148",
+    "responseId": "f91c3695-4610-11ed-95b6-fa163e24a723",
+    "messageId": "f4febe77-4610-11ed-b29a-9a8f78763b4a",
+    "requestContent": {
+      "innUl": "9403026537",
+      "requestId": "9523b805-a2a8-473d-8cac-b1f85b7653cc"
+    },
+    "requestTimestamp": "2022-10-07T10:23:36.002+0300",
+    "updateTimestamp": "2022-10-07T10:25:12.336+0300",
+    "responseContent": {
+      "svUL": {
+        "dateVyp": "2022-09-17",
+        "ogrn": "5087746149607",
+        "dateOgrn": "2008-09-26",
+        "inn": "7724675240",
+        "kpp": "772701001",
+        "sprOPF": "ОКОПФ",
+        "codeOPF": "12300",
+        "fullNameOPF": "Общества с ограниченной ответственностью",
+        "svNameUL": {
+          "nameULFull": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ КОММУНИКАЦИОННАЯ ГРУППА ДЖИ3",
+          "nameULShort": "",
+          "grnDate": {
+            "grn": "5087746149607",
+            "dateNote": "2008-09-26"
+          },
+          "svNameULShort": {
+            "nameShort": "ООО ДЖИ3",
+            "grnDate": {
+              "grn": "5087746149607",
+              "dateNote": "2008-09-26"
+            }
+          }
+        },
+        "svAddressUL": {
+          "svAdrULFIAS": {
+            "idNum": "ccb97764-73d5-4e12-b895-32ed2d2a74a4",
+            "index": "117292",
+            "region": "77",
+            "nameRegion": "Г.Москва",
+            "municipRayon": {
+              "vidCode": "3",
+              "name": "МУНИЦИПАЛЬНЫЙ ОКРУГ АКАДЕМИЧЕСКИЙ"
+            },
+            "elUlDorSety": {
+              "type": "УЛ",
+              "name": "ГРИМАУ"
+            },
+            "zdanie": {
+              "type": "Д.",
+              "number": "10"
+            },
+            "pomeschZdanie": {
+              "type": "ПОМЕЩ.",
+              "number": "8 ВНУТ НУМ 3"
+            },
+            "grnDate": {
+              "grn": "2217703468915",
+              "dateNote": "2021-04-29"
+            }
+          }
+        },
+        "svStatus": {
+          "codeStatusUl": "001",
+          "nameStatusUl": "Действующее"
+        },
+        "svUstCap": {
+          "nameVidCap": "УСТАВНЫЙ КАПИТАЛ",
+          "sumCap": "16000",
+          "grnDate": {
+            "grn": "7117747972709",
+            "dateNote": "2011-11-09"
+          }
+        },
+        "svDolzhnFL": {
+          "grnDatePerv": {
+            "grn": "9137746966150",
+            "dateNote": "2013-06-17"
+          },
+          "svFL": {
+            "lastName": "ЧИСТЯКОВ",
+            "firstName": "ПАВЕЛ",
+            "patronymic": "ВАЛЕРЬЕВИЧ",
+            "innFL": "773136168218",
+            "grnDate": {
+              "grn": "2217708064011",
+              "dateNote": "2021-09-07"
+            }
+          },
+          "svDolzhn": {
+            "vidDolzhn": "02",
+            "nameVidDolzhn": "Руководитель юридического лица",
+            "nameDolzhn": "ГЕНЕРАЛЬНЫЙ ДИРЕКТОР",
+            "grnDate": {
+              "grn": "2217708064011",
+              "dateNote": "2021-09-07"
+            }
+          }
+        },
+        "svUcheredit": {
+          "uchrFL": [
+            {
+              "grnDatePerv": {
+                "grn": "7117747972654",
+                "dateNote": "2011-11-09"
+              },
+              "svFL": {
+                "lastName": "САМОШОНКОВ",
+                "firstName": "ВАСИЛИЙ",
+                "patronymic": "НИКОЛАЕВИЧ",
+                "innFL": "420518510879",
+                "grnDate": {
+                  "grn": "7117747972654",
+                  "dateNote": "2011-11-09"
+                }
+              }
+            },
+            {
+              "grnDatePerv": {
+                "grn": "5087746149607",
+                "dateNote": "2008-09-26"
+              },
+              "svFL": {
+                "lastName": "ВОЛОДЕНКОВ",
+                "firstName": "СЕРГЕЙ",
+                "patronymic": "ВЛАДИМИРОВИЧ",
+                "innFL": "772910548090",
+                "grnDate": {
+                  "grn": "2207712572758",
+                  "dateNote": "2020-11-25"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "kafkaPartition": 2,
+    "kafkaOffset": 64,
+    "state": "OUTGOING",
+    "attachmentPath": "/mnt/test/resources/xml/UL.xml.zip"
+  }

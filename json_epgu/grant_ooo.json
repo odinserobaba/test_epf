@@ -1,0 +1,147 @@
+{
+  "id": "5dcb2d25-72c0-2d84-9bf2-cf167fb2ce53",
+  "serviceId": "lic-integrator",
+  "requestId": "2a7a70a5-2f10-4019-8ce1-96d3a49afb4e",
+  "requestType": "EPGU",
+  "xsltId": 10,
+  "responseId": "28806442-2104-4809-956b-7a0db9e1ce99",
+  "messageId": "a182837d-2a17-11f0-b984-224f28d07efa",
+  "requestContent": {
+    "epgu": {
+      "orderID": "4650924124",
+      "department": "100000012571",
+      "serviceCode": "60009992",
+      "targetCode": "60009992-1",
+      "statementDate": "2025-05-26"
+    },
+    "applicant": {
+      "ul": {
+        "fullName": "ООО ЦентрИнформ2",
+        "shortName": "ООО ЦентрИнформ2",
+        "opf": "Общества с ограниченной ответственностью",
+        "lastName": "Парамонова",
+        "firstName": "Юлия",
+        "patronymic": "Александровна",
+        "ogrn": "1177847005930",
+        "inn": "7841051711",
+        "kpp": "784133001"
+      },
+      "address": "127434, Город Москва,Улица Дубки",
+      "email": "nica2011@yandex.ru",
+      "phone": "+7(926)3717373"
+    },
+    "agent": {
+      "lastName": "",
+      "firstName": "",
+      "patronymic": "",
+      "documentId": {
+        "serial": "",
+        "number": "",
+        "issuerName": "",
+        "issuerCode": "",
+        "issueDate": ""
+      },
+      "dateOfBirth": "",
+      "email": "",
+      "phone": ""
+    },
+    "grant": {
+      "subdivisions": [
+        {
+          "kpp": "770102001",
+          "address": "77:77:1111111:7777",
+          "cadastralNumbers": {
+            "warehouses": [
+              {
+                "warehouse": "77:77:1111111:7777"
+              }
+            ],
+            "lands": [
+              {
+                "land": "77:77:1111111:7777"
+              }
+            ]
+          },
+          "parties": "",
+          "subject": "",
+          "startDate": "",
+          "endDate": "",
+          "equipment": "77:77:1111111:7777",
+          "products": {
+            "productNames": [
+              {
+                "productName": "биоэтанол из непищевого сырья"
+              }
+            ],
+            "productNameText": ""
+          },
+          "kppHardwareTS": "",
+          "addressHardwareTS": ""
+        }
+      ],
+      "license": {
+        "numOfYears": "4",
+        "numOfMonths": "",
+        "kindOfActivity": "Производство, хранение и поставки произведённого этилового спирта",
+        "kindOfWork": ""
+      },
+      "laboratory": {
+        "certificate": "1",
+        "parties": "",
+        "subject": "",
+        "startDate": "",
+        "endDate": ""
+      },
+      "bank": {
+        "name": "",
+        "account": ""
+      },
+      "payment": {
+        "number": "1",
+        "date": "2025-05-26",
+        "amount": "",
+        "purpose": ""
+      },
+      "uin": {
+        "number": "",
+        "date": ""
+      }
+    },
+    "appliedDocuments": [
+      {
+        "name": "notification (6).pdf",
+        "businessName": "Уставной капитал",
+        "type": "application/pdf",
+        "mnemonic": "c172.FileUploadComponent.capital.4650924683"
+      },
+      {
+        "name": "notification (6).pdf",
+        "businessName": "Расчёт производственной мощности основного технологического оборудования",
+        "type": "application/pdf",
+        "mnemonic": "c175.FileUploadComponent.moschnost.4650924683"
+      },
+      {
+        "name": "notification (6).pdf",
+        "businessName": "Сведения о бенефициарных владельцах",
+        "type": "application/pdf",
+        "mnemonic": "c48.FileUploadComponent.benef.4650924683"
+      },
+      {
+        "name": "notification (6).pdf",
+        "businessName": "Сведения об аффилированных лицах",
+        "type": "application/pdf",
+        "mnemonic": "c49.FileUploadComponent.aff.4650924683"
+      }
+    ]
+  },
+  "requestTimestamp": "2025-05-26T12:58:09.866+0300",
+  "updateTimestamp": "2025-05-26T12:58:10.116+0300",
+  "kafkaPartition": 0,
+  "kafkaOffset": 0,
+  "route": "IN",
+  "attachmentPath": "/mnt/leveler/storage/2025-05-26/a18d837d-3a17-11f0-b984-224f28d07efa/Application.zip",
+  "seq": "202505",
+  "state": "OUTGOING",
+  "archivedStatus": true,
+  "queuedStatus": true
+}
