@@ -2,7 +2,7 @@ import csv
 import json
 import logging
 import os
-from datetime import datetime, timezone, timedelta, UTC
+from datetime import datetime, timezone, timedelta
 
 # Настройка логгера
 logging.basicConfig(
@@ -41,7 +41,7 @@ def get_kafka(file_path='/home/nuanred/PycharmProjects/license_enf/in/jsons_lice
 
 
     # Чтение CSV-файла
-    with open('in/license_out23.csv', mode='r', newline='', encoding='utf-8') as file:
+    with open('in/license_out26.csv', mode='r', newline='', encoding='utf-8') as file:
         reader = csv.DictReader(file)
 
         # Перебор всех строк и создание JSON-файлов

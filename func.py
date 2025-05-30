@@ -70,14 +70,58 @@ def get_outside_request(q):
     """
 
     logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
-    logger.debug('------------------------Получение Заданий')
-    logger.debug("""
-   ,
-__/ \__
-\     /
-/_   _\
-  \ /
-   '""")
+    logger.debug(f"[get_outside_request]------------------------Получение Заданий {q.setup['2037']}")
+
+    # Формируем HTTP-запрос для получения токена
+    request = HttpRequest(
+        base_url=q.setup["base_url"],  # Базовый URL
+        method='GET',                  # Метод GET
+        url=f"/api-lc-license/dashboard/license/request/check/outside_request/{q.setup['2037']}",  # URL для получения токена
+        headers={  # Заголовки запроса
+            'accept': '*/*',  # Принимаем любой формат ответа
+            'Content-Type': 'application/json',  # Тип содержимого запроса
+            'authorization': q.setup["token"]  # Передаем токен авторизации
+        }
+    )
+
+    response = request.execute()  # Выполняем запрос
+    # Сохраняем полученный токен в настройках очереди запросов
+#
+#     resp = json.loads(response[2])
+#     outside_request_id = [x['id'] for x in resp]
+#     q.setup['outside_request_id']= outside_request_id
+#
+#
+#     logger.info(f'[get_outside_request] Задания номера: {[f"{x} " for x in outside_request_id]} \n')
+#     # logger.info(f'Первое задание {test_utils.print_pretty_json(list(response[2])[0])}')
+#     mess = f'''
+# * Шаг№{q.setup['current_method_index']} получаем  Задания
+# {{{{collapse(Получение Получение Заданий)
+#     <pre>
+#     {q.setup["base_url"]}
+#     {response[0]}
+#     {response[1]}
+#     {response[2]}
+#     </pre>
+# }}}}
+#     '''
+#     q.write_to_file(mess, q.file_name)
+#     if response[0]==200:
+#         mess = '%{color:green}Успешно!%'
+#     else:
+#         mess = '%{color:red}Ошибка!%'
+#     q.write_to_file(mess, q.file_name)
+#     return response[2]  # Возвращаем токен
+
+def get_outside_request_checks(q):
+    """
+    Выполняет запрос для Получение Заданий.
+
+    :param q: Экземпляр класса RequestQueue
+    :return: Токен авторизации
+    """
+    logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
+    logger.debug('[get_outside_request_checks] ------------------------Получение Заданий')
     # Формируем HTTP-запрос для получения токена
     request = HttpRequest(
         base_url=q.setup["base_url"],  # Базовый URL
@@ -89,7 +133,6 @@ __/ \__
             'authorization': q.setup["token"]  # Передаем токен авторизации
         }
     )
-
     response = request.execute()  # Выполняем запрос
     # Сохраняем полученный токен в настройках очереди запросов
 
@@ -98,7 +141,7 @@ __/ \__
     q.setup['outside_request_id']= outside_request_id
 
 
-    logger.info(f'Задания номера: {[f"{x} " for x in outside_request_id]} \n')
+    logger.info(f'[get_outside_request_checks] Задания номера: {outside_request_id} \n')
     # logger.info(f'Первое задание {test_utils.print_pretty_json(list(response[2])[0])}')
     mess = f'''
 * Шаг№{q.setup['current_method_index']} получаем  Задания
@@ -130,7 +173,7 @@ def set_outside_request(q):
     logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
     logger.debug('[set_outside_request]------------------------Установка Задания')
 
-    func_url = f"/api-lc-license/dashboard/license/request/check/outside_request/{q.setup['2037']}"
+    func_url = f"/api-lc-license/dashboard/license/request/check/outside_request/checks/{q.setup['2037']}"
     # Формируем HTTP-запрос для получения расширенных данных
     with open('json_epgu/outside_request.json', 'r', encoding='utf-8') as file:
         payload = json.load(file)
@@ -228,7 +271,7 @@ def set_outside_order(q):
     payload['id'] = q.setup['outside_order_id']
     payload['checkId']= q.setup['2038']
     payload['outsideRequestId']=q.setup['outside_request_id']
-    logger.info(f'q.setup outside_order_id {q.setup["outside_order_id"][0]}')
+    logger.info(f'q.setup outside_order_id {q.setup["outside_order_id"]}')
     logger.info(f'payload id = {payload["id"]} checkId {payload["checkId"]}')
     json_string = json.dumps(payload, ensure_ascii=False, indent=4)
     json_string_single_quotes = json_string.replace('"', "'")

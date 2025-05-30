@@ -17,9 +17,9 @@ from models import *
 # test_checks()
 # test_2038()
 # add_akt()
-# copy_logs_to_downloads()
+copy_logs_to_downloads()
 # test_todo_2002positive()
-test_positive()
+# test_positive()
 # -- Задания приказы
 # test_get_outside_request()
 # test_set_outside_request()
