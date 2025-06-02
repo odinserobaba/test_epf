@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {"type": "number"},
+        "checkId": {"type": "number"},
+        "applicantInfo": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "code": {"type": "number"},
+                    "infoName": {"type": "string"}
+                },
+                "required": ["code", "infoName"]
+            }
+        },
+        "docs": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "number"},
+                    "docs": {
+                        "type": "object",
+                        "properties": {
+                            "code": {"type": "number"},
+                            "docName": {"type": "string"}
+                        },
+                        "required": ["code", "docName"]
+                    },
+                    "result": {"type": "boolean"}
+                },
+                "required": ["id", "docs", "result"]
+            }
+        },
+        "primaryKey": {"type": "number"},
+        "result": {"type": "boolean"},
+        "administrationName": {"type": "string"},
+        "dateStatement": {"type": "null"},
+        "numStatement": {"type": "null"},
+        "phone": {"type": "null"},
+        "sendMaxDate": {"type": "string", "format": "date"},
+        "signerPosition": {"type": "null"},
+        "signerName": {"type": "null"},
+        "additionalInformation": {"type": "string"},
+        "printedFormAddresses": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "address": {"type": "string"},
+                    "addition": {"type": "string"}
+                },
+                "required": ["address", "addition"]
+            }
+        }
+    },
+    "required": [
+        "id", "checkId", "applicantInfo", "docs", "primaryKey", "result",
+        "administrationName", "dateStatement", "numStatement", "phone",
+        "sendMaxDate", "signerPosition", "signerName", "additionalInformation",
+        "printedFormAddresses"
+    ]
+}

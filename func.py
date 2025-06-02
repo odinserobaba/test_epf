@@ -1,5 +1,4 @@
 import logging
-
 import test_utils
 from HttpRequest import *  # Импортируем класс HttpRequest
 import time
@@ -9,6 +8,8 @@ from test_utils import *
 from logs import *
 import pandas as pd
 import uuid
+from jsonschema import validate,ValidationError
+
 def cat_print_best_cat(q):
     cat = '''
            _
@@ -177,13 +178,26 @@ def set_outside_request(q):
     # Формируем HTTP-запрос для получения расширенных данных
     with open('json_epgu/outside_request.json', 'r', encoding='utf-8') as file:
         payload = json.load(file)
+    with open('json_epgu/outside_request_sheme.json', 'r', encoding='utf-8') as file:
+        payload_sheme = json.load(file)
 
-
-    payload['id'] = q.setup['outside_request_id']
+    payload['id'] = q.setup['outside_request_id'][0]
     payload['checkId']= q.setup['2037']
+    payload['primaryKey']=q.setup['outside_request_id'][0]
     json_string = json.dumps(payload, ensure_ascii=False, indent=4)
     json_string_single_quotes = json_string.replace('"', "'")
     logger.debug(f'[set_outside_request] Payload POST \n {json_string}')
+
+    # Валидация JSON
+    try:
+        validate(instance=payload, schema=payload_sheme)
+        logger.debug("JSON is valid!")
+    except ValidationError as e:
+        logger.debug("JSON is invalid:")
+        logger.debug(f"Message: {e.message}")
+        logger.debug(f"Invalid field: {e.json_path}")
+
+
     request = HttpRequest(
         base_url=q.setup["base_url"],  # Базовый URL
         method='POST',                  # Метод GET
@@ -199,7 +213,7 @@ def set_outside_request(q):
     response = request.execute()  # Выполняем запрос
     # Сохраняем полученный токен в настройках очереди запросов
     logger.info(f'[set_outside_request] Ответ  {response} \n')
-
+    time.sleep(5)
 def get_outside_order(q):
     """
     Выполняет запрос для Получение Приказов.
@@ -268,10 +282,10 @@ def set_outside_order(q):
     with open('json_epgu/outside_request.json', 'r', encoding='utf-8') as file:
         payload = json.load(file)
 
-    payload['id'] = q.setup['outside_order_id']
+    payload['id'] = q.setup['outside_order_id'][0]
     payload['checkId']= q.setup['2038']
-    payload['outsideRequestId']=q.setup['outside_request_id']
-    logger.info(f'q.setup outside_order_id {q.setup["outside_order_id"]}')
+    payload['outsideRequestId']=q.setup['outside_request_id'][0]
+    logger.info(f'q.setup outside_order_id {q.setup["outside_order_id"][0]}')
     logger.info(f'payload id = {payload["id"]} checkId {payload["checkId"]}')
     json_string = json.dumps(payload, ensure_ascii=False, indent=4)
     json_string_single_quotes = json_string.replace('"', "'")

@@ -266,20 +266,23 @@ def test_positive():
     q = QueueLicense()
     setup_logger(q)
     q.setup['base_url'] = "lk-test.egais.ru"
-    q.setup['request_id'] = 233782
+    q.setup['request_id'] = 233826
     # logger = logging.getLogger(__name__)
     q.add_to_queue(get_token, q)  # Добавляем функцию в очередь
     # Выставляем все проверки в положительное решение
-    q.add_to_queue(set_cheks, q)
-    q.add_to_queue(get_extended, q)
-    q.add_to_queue(get_info, q)
-    q.add_to_queue(set_check2023, q)
-    q.add_to_queue(get_extended, q)
-    q.add_to_queue(get_info, q)
-    q.add_to_queue(set_check2002, q)
-    q.add_to_queue(get_extended, q)
-    q.add_to_queue(get_info, q)
+
+    # q.add_to_queue(set_cheks, q)
+    # q.add_to_queue(get_extended, q)
+    # q.add_to_queue(get_info, q)
+    # q.add_to_queue(set_check2023, q)
+    # q.add_to_queue(get_extended, q)
+    # q.add_to_queue(get_info, q)
+    # q.add_to_queue(set_check2002, q)
+    # q.add_to_queue(get_extended, q)
+    # q.add_to_queue(get_info, q)
     # q.add_to_queue(set_check2037,q)
+
+
     # q.add_to_queue(get_extended, q)
     # q.add_to_queue(get_info, q)
     # q.add_to_queue(get_exercise_request_doc2037, q)
@@ -287,14 +290,14 @@ def test_positive():
 
     # q.add_to_queue(get_exercise_request_addresses2037, q)
     # q.add_to_queue(get_exercise_applicant_info2037, q)
-    # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
     # q.add_to_queue(get_exercise_request_doc2037, q)
     # q.add_to_queue(get_exercise2037, q)
     # q.add_to_queue(get_exercise_request_addresses2037, q)
     # q.add_to_queue(get_exercise_applicant_info2037, q)
-    q.add_to_queue(get_extended, q)
-    q.add_to_queue(get_info, q)
+    # q.add_to_queue(get_extended, q)
+    # q.add_to_queue(get_info, q)
     # q.add_to_queue(get_exercise_request_doc2037, q)
     # q.add_to_queue(get_exercise2037, q)
     # q.add_to_queue(get_exercise_request_addresses2037, q)
@@ -305,7 +308,7 @@ def test_positive():
     q.add_to_queue(get_outside_request, q)
     q.add_to_queue(get_outside_request_checks, q)
     # q.add_to_queue(get_outside_request, q)
-    q.add_to_queue(set_outside_request, q)
+    # q.add_to_queue(set_outside_request, q)
     q.add_to_queue(set_outside_request, q)
     q.add_to_queue(get_outside_order, q)
     q.add_to_queue(set_outside_order, q)
