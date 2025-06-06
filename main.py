@@ -9,7 +9,7 @@ from models import *
 # test_info()
 #test_set_status()
 # test_todo_2002_negative()
-
+test_pl()
 # copy_logs()
 # set_2038()
 # set_akt_test()
@@ -19,7 +19,7 @@ from models import *
 # add_akt()
 # copy_logs_to_downloads()
 # test_todo_2002positive()
-test_positive()
+# test_positive()
 # -- Задания приказы
 # test_get_outside_request()
 # test_set_outside_request()
@@ -31,7 +31,7 @@ test_positive()
 # * --------------------------------------|
 # * Выдача
 # for x in range(3):
-#     create_license_test()
+# create_license_test()
 # * Продление
 # extension_license_test()
 # * Переоформление

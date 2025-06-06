@@ -174,7 +174,7 @@ def set_outside_request(q):
     logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
     logger.debug('[set_outside_request]------------------------Установка Задания')
 
-    func_url = f"/api-lc-license/dashboard/license/request/check/outside_request/checks/{q.setup['2037']}"
+    func_url = f"/api-lc-license/dashboard/license/request/check/outside_request/{q.setup['2037']}"
     # Формируем HTTP-запрос для получения расширенных данных
     with open('json_epgu/outside_request.json', 'r', encoding='utf-8') as file:
         payload = json.load(file)
@@ -199,16 +199,16 @@ def set_outside_request(q):
 
 
     request = HttpRequest(
-        base_url=q.setup["base_url"],  # Базовый URL
-        method='POST',                  # Метод GET
-        # URL для получения расширенных данных
+        base_url=q.setup["base_url"],
+        method='POST',
         url=func_url,
-        body=json.dumps(payload),
-        headers={                      # Заголовки запроса
-            'accept': '*/*',           # Принимаем любой формат ответа
-            'Content-Type': 'application/json',  # Тип содержимого запроса
-            'authorization': q.setup["token"]  # Передаем токен авторизации
-        })
+        body=json.dumps(payload, separators=(',', ': ')),
+        headers={
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': q.setup["token"]
+        }
+    )
     logger.info(f'[set_outside_request] Отправляем в Задания {request} \n')
     response = request.execute()  # Выполняем запрос
     # Сохраняем полученный токен в настройках очереди запросов
@@ -223,7 +223,7 @@ def get_outside_order(q):
     """
 
     logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
-    logger.debug('------------------------Получение Приказов')
+    logger.debug(f'[get_outside_order]------------------------Получение Приказов 2038 -  {q.setup["2038"]}')
 
     # Формируем HTTP-запрос для получения токена
     request = HttpRequest(
@@ -241,11 +241,11 @@ def get_outside_order(q):
     # Сохраняем полученный токен в настройках очереди запросов
 
     resp = json.loads(response[2])
-    outside_order_id = [x['id'] for x in resp]
+    outside_order_id = resp[0]['id']
     q.setup['outside_order_id']= outside_order_id
 
 
-    logger.info(f'Приказы номера: {[f"{x}" for x in outside_order_id]} \n')
+    logger.info(f'[get_outside_order] Приказы номер: {outside_order_id} \n')
     # logger.info(f'Первое задание {test_utils.print_pretty_json(list(response[2])[0])}')
     mess = f'''
 * Шаг№{q.setup['current_method_index']} получаем  номера Приказов
@@ -266,6 +266,57 @@ def get_outside_order(q):
     q.write_to_file(mess, q.file_name)
     return response[2]  # Возвращаем токен
 
+def get_outside_exec(q):
+    """
+    Выполняет запрос для Получение АККТА.
+
+    :param q: Экземпляр класса RequestQueue
+    :return: Токен авторизации
+    """
+
+    logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
+    logger.debug(f'[get_outside_exec]------------------------Получение АККТА 2039 -  {q.setup["2039"]}')
+
+    # Формируем HTTP-запрос для получения токена
+    request = HttpRequest(
+        base_url=q.setup["base_url"],  # Базовый URL
+        method='GET',                  # Метод GET
+        url=f"/api-lc-license/dashboard/license/request/check/outside_exec/all/{q.setup['2039']}",  # URL для получения токена
+        headers={  # Заголовки запроса
+            'accept': '*/*',  # Принимаем любой формат ответа
+            'Content-Type': 'application/json',  # Тип содержимого запроса
+            'authorization': q.setup["token"]  # Передаем токен авторизации
+        }
+    )
+
+    response = request.execute()  # Выполняем запрос
+    # Сохраняем полученный токен в настройках очереди запросов
+    logger.debug(f'[get_outside_exec] {response}')
+    resp = json.loads(response[2])
+    outside_exec_id = resp[0]['id']
+    q.setup['outside_exec_id']= outside_exec_id
+
+
+    logger.info(f'[get_outside_exec] АКТЫ номера: {outside_exec_id} \n')
+    # logger.info(f'Первое задание {test_utils.print_pretty_json(list(response[2])[0])}')
+    mess = f'''
+* Шаг№{q.setup['current_method_index']} получаем  номера Актов
+{{{{collapse(Получение Приказов)
+    <pre>
+    {q.setup["base_url"]}
+    {response[0]}
+    {response[1]}
+    {response[2]}
+    </pre>
+}}}}
+    '''
+    q.write_to_file(mess, q.file_name)
+    if response[0]==200:
+        mess = '%{color:green}Успешно!%'
+    else:
+        mess = '%{color:red}Ошибка!%'
+    q.write_to_file(mess, q.file_name)
+    return response[2]  # Возвращаем токен
 def set_outside_order(q):
     """
     Выполняет запрос для установки Приказа.
@@ -277,30 +328,35 @@ def set_outside_order(q):
     logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
     logger.debug('[set_outside_order]------------------------Установка Приказов')
 
+    if q.setup['outside_order_id']=='[]':
+        logger.error(f"[set_outside_order]------------------------НЕТ Заданий q.setup {q.setup['outside_request_id']} \n")
+        logger.error(f"[set_outside_order]------------------------q.setup {[[x,q.setup[x]] for x in q.setup.keys()]} \n")
+
     func_url = f"/api-lc-license/dashboard/license/request/check/outside_order/{q.setup['2038']}"
     # Формируем HTTP-запрос для получения расширенных данных
-    with open('json_epgu/outside_request.json', 'r', encoding='utf-8') as file:
+    with open('json_epgu/outside_order.json', 'r', encoding='utf-8') as file:
         payload = json.load(file)
 
-    payload['id'] = q.setup['outside_order_id'][0]
+    payload['id'] = q.setup['outside_order_id']
     payload['checkId']= q.setup['2038']
-    payload['outsideRequestId']=q.setup['outside_request_id'][0]
-    logger.info(f'q.setup outside_order_id {q.setup["outside_order_id"][0]}')
+    payload['outsideRequestId']=q.setup['outside_request_id']
+    logger.info(f'q.setup outside_order_id {q.setup["outside_order_id"]}')
     logger.info(f'payload id = {payload["id"]} checkId {payload["checkId"]}')
-    json_string = json.dumps(payload, ensure_ascii=False, indent=4)
-    json_string_single_quotes = json_string.replace('"', "'")
-    logger.debug(f'[set_outside_order] Payload POST \n {payload}')
+    # json_string = json.dumps(payload, ensure_ascii=False, indent=4)
+    # json_string_single_quotes = json_string.replace('"', "'")
+    logger.info(f'[set_outside_order] {payload}')
+    logger.info(f'[set_outside_order] Payload POST \n {payload}')
     request = HttpRequest(
-        base_url=q.setup["base_url"],  # Базовый URL
-        method='POST',                  # Метод GET
-        # URL для получения расширенных данных
+        base_url=q.setup["base_url"],
+        method='POST',
         url=func_url,
-        body=json.dumps(payload),
-        headers={                      # Заголовки запроса
-            'accept': '*/*',           # Принимаем любой формат ответа
-            'Content-Type': 'application/json',  # Тип содержимого запроса
-            'authorization': q.setup["token"]  # Передаем токен авторизации
-        })
+        body=json.dumps(payload, separators=(',', ': ')),
+        headers={
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': q.setup["token"]
+        }
+    )
     logger.info(f'[set_outside_order] Отправляем в Приказ {request} \n')
     response = request.execute()  # Выполняем запрос
     # Сохраняем полученный токен в настройках очереди запросов
@@ -324,23 +380,23 @@ def set_outside_exec(q):
 
 
     payload['checkId']= q.setup['2039']
-    payload['outsideRequestId']=q.setup['outside_request_id'][0]
-    logger.info(f'q.setup outside_request_id {q.setup["outside_request_id"][0]}')
+    payload['outsideRequestId']=q.setup['outside_request_id']
+    logger.info(f'q.setup outside_request_id {q.setup["outside_request_id"]}')
     logger.info(f'payload id = {payload["id"]} checkId {payload["checkId"]}')
     json_string = json.dumps(payload, ensure_ascii=False, indent=4)
     json_string_single_quotes = json_string.replace('"', "'")
     logger.debug(f'[set_outside_exec] Payload POST \n {payload}')
     request = HttpRequest(
-        base_url=q.setup["base_url"],  # Базовый URL
-        method='POST',                  # Метод GET
-        # URL для получения расширенных данных
+        base_url=q.setup["base_url"],
+        method='POST',
         url=func_url,
-        body=json.dumps(payload),
-        headers={                      # Заголовки запроса
-            'accept': '*/*',           # Принимаем любой формат ответа
-            'Content-Type': 'application/json',  # Тип содержимого запроса
-            'authorization': q.setup["token"]  # Передаем токен авторизации
-        })
+        body=json.dumps(payload, separators=(',', ': ')),
+        headers={
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': q.setup["token"]
+        }
+    )
     logger.info(f'[set_outside_exec] Отправляем в АКТ {request} \n')
     response = request.execute()  # Выполняем запрос
     # Сохраняем полученный токен в настройках очереди запросов
@@ -1678,7 +1734,8 @@ def get_logs_lic_integrator(uuid_logs,logs_folder):
     current_directory = logs_folder
     logger.debug(f'Папка для логов: {current_directory}')
     EGAISLogs.get_logs(namespace='integrators',uuid_log=uuid_logs,path=current_directory,services='lic-integrator',context='test-kuber',message='test',logger= logger)
-    
+
+
 def get_logs_erul_license(uuid_logs,logs_folder):
     """
     Пишем логи erul_license
@@ -1696,6 +1753,11 @@ def get_logs_api_lk_license(uuid_logs,logs_folder):
     current_directory = logs_folder
     logger.debug(f'Папка для логов: {current_directory}')
     EGAISLogs.get_logs(namespace='api-lk',uuid_log=uuid_logs,path=current_directory,services='api-lk-license',context='test-kuber',message='test',logger= logger)
+
+def sleep_3(q):
+    logger = logging.getLogger(__name__)
+    logger.debug(
+        f'------------------------Спим 3 секунды sleep_3')
 
 def get_exam_info(q):
     """

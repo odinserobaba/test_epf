@@ -10,7 +10,7 @@ from func_delo import *
 from func_kafka import *
 from func_ais import *
 from func_selenium import *
-
+from playwright_func import *
 
 def permit_number_erul_request():
     q = QueueLicense()
@@ -262,56 +262,86 @@ def test_get_outside_order():
     q.add_to_queue(get_outside_order, q)
     q.process_queue()
 
+def test_pl():
+    q = QueueLicense()
+    setup_logger(q)
+    q.setup['base_url'] = "lk-test.egais.ru"
+    q.setup['request_id'] = 233868
+    q.add_to_queue(playwright_set_info,q)
+    q.add_to_queue(get_token, q)
+    q.add_to_queue(set_cheks, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
+    q.add_to_queue(set_check2023, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
+    q.add_to_queue(set_check2002, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
+    q.add_to_queue(set_check2037,q)
+    q.add_to_queue(playwright_set_vos_request,q)
+    q.add_to_queue(playwright_set_vos_order, q)
+    q.add_to_queue(playwright_set_vos_exec, q)
+    q.process_queue()
+
+
 def test_positive():
     q = QueueLicense()
     setup_logger(q)
     q.setup['base_url'] = "lk-test.egais.ru"
-    q.setup['request_id'] = 233826
+    q.setup['request_id'] = 233908
     # logger = logging.getLogger(__name__)
     q.add_to_queue(get_token, q)  # Добавляем функцию в очередь
     # Выставляем все проверки в положительное решение
-
-    # q.add_to_queue(set_cheks, q)
-    # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
-    # q.add_to_queue(set_check2023, q)
-    # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
-    # q.add_to_queue(set_check2002, q)
-    # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
-    # q.add_to_queue(set_check2037,q)
-
-
-    # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
-    # q.add_to_queue(get_exercise_request_doc2037, q)
-    # q.add_to_queue(get_exercise2037, q)
-
-    # q.add_to_queue(get_exercise_request_addresses2037, q)
-    # q.add_to_queue(get_exercise_applicant_info2037, q)
+    q.add_to_queue(set_info,q)
+    q.add_to_queue(set_cheks, q)
     q.add_to_queue(get_extended, q)
     q.add_to_queue(get_info, q)
-    # q.add_to_queue(get_exercise_request_doc2037, q)
-    # q.add_to_queue(get_exercise2037, q)
-    # q.add_to_queue(get_exercise_request_addresses2037, q)
-    # q.add_to_queue(get_exercise_applicant_info2037, q)
+    q.add_to_queue(set_check2023, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
+    q.add_to_queue(set_check2002, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
+    q.add_to_queue(set_check2037,q)
+    #
+    # #
+    # #
+    # # q.add_to_queue(get_extended, q)
+    # # q.add_to_queue(get_info, q)
+    # # q.add_to_queue(get_exercise_request_doc2037, q)
+    # # q.add_to_queue(get_exercise2037, q)
+    # # q.add_to_queue(get_exercise_request_addresses2037, q)
+    # # q.add_to_queue(get_exercise_applicant_info2037, q)
     # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
-    # q.add_to_queue(get_exercise_request_doc2037, q)
-    # q.add_to_queue(get_exercise2037, q)
-    # q.add_to_queue(get_exercise_request_addresses2037, q)
-    # q.add_to_queue(get_exercise_applicant_info2037, q)
-    # q.add_to_queue(get_extended, q)
-    # q.add_to_queue(get_info, q)
+    q.add_to_queue(get_info, q)
+
+    q.add_to_queue(get_exercise_request_doc2037, q)
+    q.add_to_queue(get_exercise2037, q)
+    q.add_to_queue(get_exercise_request_addresses2037, q)
+    q.add_to_queue(get_exercise_applicant_info2037, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
+    q.add_to_queue(get_exercise_request_doc2037, q)
+    q.add_to_queue(get_exercise2037, q)
+    q.add_to_queue(get_exercise_request_addresses2037, q)
+    q.add_to_queue(get_exercise_applicant_info2037, q)
+    q.add_to_queue(get_extended, q)
+    q.add_to_queue(get_info, q)
 
     q.add_to_queue(get_outside_request, q)
     q.add_to_queue(get_outside_request_checks, q)
-    # q.add_to_queue(get_outside_request, q)
-    # q.add_to_queue(set_outside_request, q)
+    q.add_to_queue(sleep_3, q)
     q.add_to_queue(set_outside_request, q)
     q.add_to_queue(get_outside_order, q)
-    q.add_to_queue(set_outside_order, q)
+    #
+    q.add_to_queue(get_outside_request, q)
+    q.add_to_queue(get_outside_request_checks, q)
+    # # q.add_to_queue(set_outside_request, q)
+
+    q.add_to_queue(get_outside_order, q)
+    # q.add_to_queue(set_outside_order, q)
+    q.add_to_queue(get_outside_exec, q)
     q.add_to_queue(set_outside_exec, q)
     q.process_queue()
 
