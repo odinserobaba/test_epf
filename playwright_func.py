@@ -225,6 +225,47 @@ def set_vos(playwright: Playwright,request_id) -> None:
     context.close()
     browser.close()
 
+def sel_playground(playwright: Playwright,request_id):
+    logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
+    logger.debug(f"[set_vos]-----=====/////Установка ВОС/////=====-----")
+    browser = playwright.chromium.launch(
+        headless=True,  # Запуск браузера в режиме с графическим интерфейсом
+        # slow_mo=5,  # Замедление выполнения для наглядности
+        args=[
+            '--start-maximized'  # Запуск браузера в максимальном размере окна
+            '--disable-infobars',  # Отключение информационных панелей
+            '--disable-notifications',  # Отключение уведомлений
+            # '--lang=en-US',  # Установка языка браузера
+        ]
+    )
+    context = browser.new_context()
+    page = context.new_page()
+    # page.set_viewport_size({'width': 1920, 'height': 1080})
+    logger.debug('[set_vos]  page.goto("https://lk-test.egais.ru/dev")')
+    page.goto("https://lk-test.egais.ru/dev")
+    page.get_by_label("Login *").click()
+    page.get_by_label("Login *").fill("wageworker")
+    logger.debug('[set_vos]  Login')
+    page.get_by_label("Password *").click()
+    page.get_by_label("Password *").fill("GetMeT0kenPlease-246")
+    logger.debug('[set_vos]  Password')
+    page.get_by_role("button", name="Login").click()
+    page.get_by_role("button", name="").click()
+
+    # -----=====     Переход к заявлению     =====-----
+    page.goto(f"https://lk-test.egais.ru/cabinet/licenses/inProcess/{request_id}")
+    logger.debug('[set_info_pl]  Переход к заявлению')
+    page.get_by_role("tab", name="Приказ").click()
+    logger.debug('[set_info_pl]  Приказ')
+    page.get_by_text("Акт", exact=True).click()
+    logger.debug('[set_info_pl]  Акт')
+    page.get_by_text("Задание", exact=True).click()
+    logger.debug('[set_info_pl]  Задание')
+
+    # -----=====     Приказ    =====-----
+    logger.debug('[set_info_pl]  Приказ')
+    page.get_by_role("tab", name="Приказ").click()
+
 def set_vos_order(playwright: Playwright,request_id) -> None:
     logger = logging.getLogger(__name__)  # Получаем логгер текущего модуля
     logger.debug(f"[set_vos]-----=====/////Установка ВОС/////=====-----")
@@ -265,10 +306,39 @@ def set_vos_order(playwright: Playwright,request_id) -> None:
     # -----=====     Приказ    =====-----
     logger.debug('[set_info_pl]  Приказ')
     page.get_by_role("tab", name="Приказ").click()
-    page.locator("form div").filter(has_text=re.compile(r"Адреса мест ведения деятельности")).nth(2).click()
+    logger.debug('[set_info_pl]  Адреса мест ведения деятельности')
+    # # Используем локатор для поиска элементов, содержащих нужный текст
+    # checklist_items = page.locator("form div").filter(has_text=re.compile(r"Адреса мест ведения деятельности"))
+    # # Находим все чекбоксы внутри найденных элементов
+    # checkboxes = checklist_items.locator("input[type='checkbox']")
+    # # Выбираем первый элемент
+    # if checkboxes:
+    #     logger.debug(f'[set_info_pl]  Приказ Адреса {checkboxes}')
+    #     checkboxes.first.click()
+    # else:
+    #     logger.debug('[set_info_pl]  Приказ нет Адреса')
+    # # page.locator("form div").filter(has_text=re.compile(r"Адреса мест ведения деятельности")).nth(2).click()
+    try:
+        # Используем локатор для поиска элементов, содержащих нужный текст
+        checklist_items = page.locator("form div").filter(has_text=re.compile(r"Адреса мест ведения деятельности"))
+        logger.debug('[set_info_pl]  Нашли')
+        # Выбираем первый элемент из найденных
+        first_item = checklist_items.first
+
+        # Прокручиваем элемент в видимую область
+        first_item.scroll_into_view_if_needed()
+
+        # Находим чекбокс внутри этого элемента и кликаем на него
+        checkbox = first_item.locator("input[type='checkbox']")
+        checkbox.check()
+
+        logger.debug('[set_info_pl] Приказ Адреса найден и отмечен')
+
+    except Exception as e:
+        logger.error(f"Произошла ошибка: {e}")
 
     logger.debug('[set_info_pl]  Адреса мест ведения деятельности')
-    page.get_by_role("option", name="Республика Крым 91").locator("span").click()
+    # page.get_by_role("option", name="Республика Крым 91").locator("span").click()
     page.keyboard.press('Escape')
     logger.debug('[set_info_pl]  БАХЧИСАРАЙСКИЙ')
     page.get_by_role("textbox", name="ФИО сотрудника, уполномоченного на проведение оценки соответствия").click()

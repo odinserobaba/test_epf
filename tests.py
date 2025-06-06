@@ -266,8 +266,8 @@ def test_pl():
     q = QueueLicense()
     setup_logger(q)
     q.setup['base_url'] = "lk-test.egais.ru"
-    q.setup['request_id'] = 233868
-    q.add_to_queue(playwright_set_info,q)
+    q.setup['request_id'] = 233824
+    # q.add_to_queue(playwright_set_info,q)
     q.add_to_queue(get_token, q)
     q.add_to_queue(set_cheks, q)
     q.add_to_queue(get_extended, q)
@@ -284,6 +284,29 @@ def test_pl():
     q.add_to_queue(playwright_set_vos_exec, q)
     q.process_queue()
 
+def test_outside_request():
+    q = QueueLicense()
+    setup_logger(q)
+    q.setup['base_url'] = "lk-test.egais.ru"
+    q.setup['request_id'] = 233824
+    q.add_to_queue(playwright_set_vos_request,q)
+    q.process_queue()
+
+def test_sel_playground():
+    q = QueueLicense()
+    setup_logger(q)
+    q.setup['base_url'] = "lk-test.egais.ru"
+    q.setup['request_id'] = 233824
+    q.add_to_queue(playwright_set_vos_order,q)
+    q.process_queue()
+
+def test_outside_order():
+    q = QueueLicense()
+    setup_logger(q)
+    q.setup['base_url'] = "lk-test.egais.ru"
+    q.setup['request_id'] = 233824
+    q.add_to_queue(playwright_set_vos_order,q)
+    q.process_queue()
 
 def test_positive():
     q = QueueLicense()
